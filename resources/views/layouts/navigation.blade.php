@@ -15,6 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @can('schedule-class')
+                        <x-nav-link :href="route('schedule.create')" :active="request()->routeIs('schedule.create')">
+                            Schedule a class
+                        </x-nav-link>
+                        <x-nav-link :href="route('schedule.index')" :active="request()->routeIs('schedule.index')">
+                            Upcoming classes
+                        </x-nav-link>
+                    @endcan
+
                 </div>
             </div>
 
@@ -42,8 +52,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -88,8 +97,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

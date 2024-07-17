@@ -21,3 +21,4 @@ one teacher can take many scheduled_classes so one to many relationship
 one course can be in many scheduled_classes so one to many relationship 
 
 
+

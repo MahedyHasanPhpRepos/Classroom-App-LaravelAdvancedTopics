@@ -1,0 +1,23 @@
+now we will add a new column in our users table named role and default value will be student
+
+php artisan make:migration add_role_to_users_table
+
+then we will make controller named DashboardController which is invokable 
+
+now we will write our logic after login which type of dashboard should be loaded or redirect to specific dashboard for specific role 
+
+but we noticing that teacher can access admin dashboard 
+or student can access teacher dashboard and admin dashboard 
+so we need a middleware to check authenticated logged in user role and 
+not allow to dashboard with other's role 
+
+now we are creating middleware and Register it first to app/Http/Kernel.php file 
+and 
+
+ protected $middlewareAliases //section 
+
+ after define we will set our middleware to our routes in web.php
+ everything is settup now we will write our check logic for role 
+
+php artisan make:controller ScheduledClassController --resource
+
